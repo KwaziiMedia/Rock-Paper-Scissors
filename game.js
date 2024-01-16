@@ -2,26 +2,25 @@
 let playerPoints = 0;
 let computerPoints = 0;
 
-/*console.log("Would you like to play best of: 3, 5 or 7?")
-let maxRounds = prompt();*/
+console.log("Welcome, best of 5 wins!");
 
 let gameOver = false;
 
 while (!gameOver) {
     round();
-    checkGameOver();
+    gameOver = checkGameOver();
 }
 
 function checkGameOver() {
     if (playerPoints >= 3) {
         console.log(`Congratulations! You won! ${playerPoints} - ${computerPoints}`);
         return true;
-    }
-    if (computerPoints >= 3) {
-        console.log(`Comiserations. You lost...! ${computerPoints} - ${playerPoints}`);
-        return true;
-    }
-
+    } else
+        if (computerPoints >= 3) {
+            console.log(`Comiserations. You lost...! ${computerPoints} - ${playerPoints}`);
+            return true;
+        }
+        else return false;
 }
 
 function playRound(playerSelection, computerSelection) {
