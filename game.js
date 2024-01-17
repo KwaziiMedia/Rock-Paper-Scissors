@@ -25,7 +25,7 @@ function checkGameOver() {
 
 function playRound(playerSelection, computerSelection) {
     console.log(`You selected ${playerSelection}`);
-    console.log(`Your opponent selected ${getComputerSelection()}`);
+    console.log(`Your opponent selected ${computerSelection}`);
 
     if (playerSelection === computerSelection) {
         return "It's a draw!"
@@ -64,7 +64,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function round() {
-    let playerSelection = "rock"
+    let playerSelection = getPlayerSelection();
     let computerSelection = getComputerSelection();
 
     console.log(playRound(playerSelection, computerSelection))
@@ -75,5 +75,16 @@ function getComputerSelection() {
     if (selection === 1) return "rock"
     if (selection === 2) return "paper"
     if (selection === 3) return "scissors"
+}
+
+function getPlayerSelection() {
+    while (true) {
+        let input = prompt();
+        input = input.toLowerCase;
+        if (input === "rock") return "rock";
+        else if (input === "paper") return "paper";
+        else if (input === "scissors") return "scissors";
+        else console.log("Invalid input. Please enter rock, paper or scissors");
+    }
 }
 
